@@ -34,7 +34,7 @@ func getFiles(source_dir string) []os.FileInfo {
 	return files
 }
 
-// 拡張子が".JPG"のファイル名を取り出し、拡張子部分を".ARW"に置き換えてファイル名をスライスに格納
+// 拡張子が".JPG"のファイルを取り出し、拡張子部分を".ARW"に置き換えてファイル名をスライスに格納
 func getSelectedFileName(files []os.FileInfo) []string {
 	var selected_file_names []string
 	for _, file := range files {
@@ -46,7 +46,7 @@ func getSelectedFileName(files []os.FileInfo) []string {
 	return selected_file_names
 }
 
-// 移動元ディレクトリのファイルの中で、ファイル名が、スライス内の要素と一致するファイルを移動先ディレクトリに移動
+// 移動元ディレクトリの全ファイルの中で、ファイル名が、スライス内の要素と一致するファイルを移動先ディレクトリに移動
 func moveRawFiles(files []os.FileInfo, selected_file_names []string, source_dir string, destination_dir string) {
 	for _, file := range files {
 		for _, selected_file_name := range selected_file_names {
